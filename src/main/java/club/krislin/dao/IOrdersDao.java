@@ -2,10 +2,7 @@ package club.krislin.dao;
 
 import club.krislin.domain.Orders;
 import club.krislin.domain.Product;
-import org.apache.ibatis.annotations.One;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -41,10 +38,10 @@ public interface IOrdersDao {
 
     /**
      * 通过id查询
-     * @param id
+     * @param ordersId
      * @return
      */
-    @Select("select * from orders where id=#{id}")
+    @Select("select * from orders where id=#{ordersId}")
     @Results({
             @Result(id=true,column = "id",property = "id"),
             @Result(column = "orderNum",property = "orderNum"),
@@ -53,7 +50,9 @@ public interface IOrdersDao {
             @Result(column = "peopleCount",property = "peopleCount"),
             @Result(column = "payType",property = "payType"),
             @Result(column = "orderDesc",property = "orderDesc"),
-            @Result(column = "productId",property = "product",one = @One(select = "club.krislin.dao.IProductDao.findById"))
+            @Result(column = "productId", property = "product", one = @One(select = "club.krislin.dao.IProductDao.findById")),
+            @Result(column = "memberid", property = "member", one = @One(select = "club.krislin.dao.IMemberDao.findById")),
+            @Result(column = "id", property = "travellers", many = @Many(select = "club.krislin.dao.ITravellersDao.findByOrdersId"))
     })
-    Orders findById(int id);
+    Orders findById(int ordersId);
 }

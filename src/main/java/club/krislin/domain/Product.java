@@ -17,7 +17,7 @@ public class Product {
     /**
      * 主键
      */
-    private String id;
+    private int id;
     /**
      * 编号 唯一
      */
@@ -50,11 +50,11 @@ public class Product {
     private Integer productStatus;
     private String productStatusStr;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

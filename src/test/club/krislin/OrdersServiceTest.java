@@ -1,5 +1,6 @@
 package club.krislin;
 
+import club.krislin.dao.IMemberDao;
 import club.krislin.domain.Orders;
 import club.krislin.service.IOrdersService;
 import org.junit.Test;
@@ -23,6 +24,8 @@ import java.util.List;
 public class OrdersServiceTest {
     @Resource
     private IOrdersService ordersService;
+    @Resource
+    private IMemberDao memberDao;
 
     @Test
     public void testOrderService() throws Exception {
@@ -30,5 +33,13 @@ public class OrdersServiceTest {
         for (Orders order:ordersList){
             System.out.println(order);
         }
+    }
+
+    @Test
+    public void testFindByOrdersId() throws Exception {
+        Orders orders = ordersService.findById(1);
+        System.out.println(orders);
+        //Member member = memberDao.findById(1);
+        //System.out.println(member);
     }
 }

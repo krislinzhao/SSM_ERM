@@ -9,17 +9,17 @@ package club.krislin.domain;
  * @Version V1.0
  */
 public class Member {
-    private String id;
+    private int id;
     private String name;
     private String nickname;
     private String phoneNum;
     private String email;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -53,5 +53,16 @@ public class Member {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "Member{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", phoneNum='" + phoneNum + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }

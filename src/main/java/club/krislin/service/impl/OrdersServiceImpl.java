@@ -40,12 +40,13 @@ public class OrdersServiceImpl implements IOrdersService {
     /**
      * 通过id查询订单
      *
-     * @param id
+     * @param ordersId
      * @return
      * @throws Exception
      */
     @Override
-    public Orders findById(int id) throws Exception {
-        return ordersDao.findById(id);
+    public Orders findById(int ordersId) throws Exception {
+        System.out.println(ordersId);
+        return ordersDao.findById(ordersId);
     }
 }

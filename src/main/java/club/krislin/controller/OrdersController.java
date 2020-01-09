@@ -25,9 +25,17 @@ public class OrdersController {
     @Autowired
     private IOrdersService ordersService;
 
+    /**
+     * 所有订单查询
+     *
+     * @param pageNum
+     * @param pageSize
+     * @return
+     * @throws Exception
+     */
     @RequestMapping("/findAll.do")
-    public ModelAndView findAll(@RequestParam(name = "pageNum",required = true,defaultValue = "1")Integer pageNum,
-                                 @RequestParam(name = "pageSize",required = true,defaultValue = "4")Integer pageSize) throws Exception {
+    public ModelAndView findAll(@RequestParam(name = "pageNum", defaultValue = "1") Integer pageNum,
+                                @RequestParam(name = "pageSize", defaultValue = "4") Integer pageSize) throws Exception {
         ModelAndView modelAndView = new ModelAndView();
         List<Orders> ordersList = ordersService.findAll(pageNum,pageSize);
         //PageInfo就是一个分页Bean
@@ -37,10 +45,20 @@ public class OrdersController {
         modelAndView.setViewName("orders-list");
         return modelAndView;
     }
+
+    /**
+     * 订单详情
+     *
+     * @param ordersId
+     * @return
+     * @throws Exception
+     */
     @RequestMapping("/findById.do")
-    public ModelAndView findById(@RequestParam(name = "id")int id) throws Exception {
+    public ModelAndView findById(@RequestParam(name = "ordersId", required = true) Integer ordersId) throws Exception {
         ModelAndView modelAndView = new ModelAndView();
-        Orders orders = ordersService.findById(id);
+        System.out.println("ordersId=" + ordersId);
+        Orders orders = ordersService.findById(ordersId);
+        System.out.println(orders);
         modelAndView.addObject("orders",orders);
         modelAndView.setViewName("orders-show");
         return modelAndView;

@@ -14,7 +14,7 @@ import java.util.List;
  * @Version V1.0
  */
 public class Orders {
-    private String id;
+    private int id;
     private String orderNum;
     private Date orderTime;
     private String orderTimeStr;
@@ -28,11 +28,11 @@ public class Orders {
     private String orderDesc;
     private List<Traveller> travellers;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

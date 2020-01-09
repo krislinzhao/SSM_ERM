@@ -24,9 +24,9 @@ public interface IOrdersService {
 
     /**
      * 通过id查询订单
-     * @param id
+     * @param ordersId
      * @return
      * @throws Exception
      */
-    Orders findById(int id) throws Exception;
+    Orders findById(int ordersId) throws Exception;
 }
