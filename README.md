@@ -49,5 +49,103 @@ AOP日志处理，使用spring AOP切面来完成系统级别的日志收集。
 # 2数据库介绍
 
 ## 2.1产品表
-![](https://raw.githubusercontent.com/krislinzhao/IMGcloud/master/img/20200109204844.png)
+| 序号 |   字段名称    |   字段类型   |        字段描述        |
+| :--: | :-----------: | :----------: | :--------------------: |
+|  1   |      id       |   int(11)    |          主键          |
+|  2   |  productNum   | varchar(50)  | 产品编号，唯一，不为空 |
+|  3   |  productName  | varchar(50)  |  产品名称（路线名称）  |
+|  4   |   cityName    | varchar(50)  |        出发城市        |
+|  5   | DepartureTime |  timestamp   |        出发时间        |
+|  7   | productPrice  | decimal(10)  |        产品价格        |
+|  7   |  productDesc  | varchar(500) |        产品描述        |
+|  8   | productStatus |    int(1)    |  状态(0 关闭 1 开启)   |
+
+
+
+## 2.2订单表
+
+| 序号 |  字段名称   |   字段类型   |            字段描述             |
+| :--: | :---------: | :----------: | :-----------------------------: |
+|  1   |     id      |   int(11)    |              主键               |
+|  2   |  orderNum   | varchar(50)  |      订单编号 不为空 唯一       |
+|  3   |  orderTime  |   datetime   |            下单时间             |
+|  4   | peopleCount |   int(10)    |            出行人数             |
+|  5   |  orderDesc  | varchar(255) |       订单描述(其它信息)        |
+|  6   |   payType   |    int(1)    | 支付方式(0 支付宝 1 微信 2其它) |
+|  7   | orderStatus |    int(1)    |   订单状态(0 未支付 1 已支付)   |
+|  8   |  productId  |   int(11)    |           产品id 外键           |
+|  9   |  memberid   |   int(11)    |      会员(联系人）id 外键       |
+
+
+
+## 2.3 会员表
+
+| 序号 | 字段名称 |  字段类型   | 字段描述 |
+| :--: | :------: | :---------: | :------: |
+|  1   |    id    |   int(11)   |   主键   |
+|  2   |   name   | varchar(20) |   姓名   |
+|  3   | nickName | varchar(20) |   昵称   |
+|  4   | phoneNum | varchar(20) | 电话号码 |
+|  5   |  email   | varchar(20) |   邮箱   |
+
+
+
+## 2.4 旅客表
+
+| 序号 |    字段名称     |  字段类型   |            字段描述            |
+| :--: | :-------------: | :---------: | :----------------------------: |
+|  1   |       id        |   int(11)   |              主键              |
+|  2   |      name       | varcahr(20) |              姓名              |
+|  3   |       sex       | varcahr(20) |              性别              |
+|  4   |    phoneNum     | varchar(20) |            电话号码            |
+|  5   | credentialsType |   int(1)    | 证件类型 0身份证 1护照 2军官证 |
+|  6   | credentialsNum  | varchar(50) |            证件号码            |
+|  7   |  travellerType  |   int(1)    |  旅客类型(人群) 0 成人 1 儿童  |
+
+
+
+## 2.5 用户表
+
+| 序号 | 字段名称 |   字段类型   |      字段描述       |
+| :--: | :------: | :----------: | :-----------------: |
+|  1   |    id    |   int(11)    |        主键         |
+|  2   |  email   | varchar(20)  |        邮箱         |
+|  3   | username | varchar(20)  |       用户名        |
+|  4   | password | varchar(255) |     密码(加密)      |
+|  5   | phoneNum | varchar(20)  |        电话         |
+|  6   |  status  |    int(1)    | 状态0 未开启 1 开启 |
+
+
+
+## 2.6角色表
+
+| 序号 | 字段名称 |   字段类型   | 字段描述 |
+| :--: | :------: | :----------: | :------: |
+|  1   |    id    |   int(11)    |   主键   |
+|  2   | roleName | varchar(20)  |  角色名  |
+|  3   | roleDesc | varchar(255) | 角色描述 |
+
+
+
+## 2.7资源权限表
+
+| 序号 |    字段名称    |   字段类型   | 字段描述 |
+| :--: | :------------: | :----------: | :------: |
+|  1   |       id       |   int(11)    |   主键   |
+|  2   | permissionName | varcahr(20)  |  权限名  |
+|  3   |      url       | varchar(255) | 权限路径 |
+
+
+
+## 2.8日志表
+
+| 序号 |   字段名称    |  字段类型   |   字段描述   |
+| :--: | :-----------: | :---------: | :----------: |
+|  1   |      id       |   int(11)   |     主键     |
+|  2   |   visitTime   |  datetime   |   访问时间   |
+|  3   |   username    | varchar(20) | 操作者用户名 |
+|  4   |      ip       | varchar(50) |    访问ip    |
+|  5   |      url      | varcahr(50) | 访问资源url  |
+|  6   | executionTime |  datetime   |   执行时长   |
+|  7   |    method     | varchar(20) |   访问方法   |
 
