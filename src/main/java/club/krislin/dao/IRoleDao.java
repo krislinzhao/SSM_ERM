@@ -1,6 +1,7 @@
 package club.krislin.dao;
 
 import club.krislin.domain.Role;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -16,7 +17,7 @@ import java.util.List;
  * @Author LIM
  * @Version V1.0
  */
-@Repository
+@Repository("roleDao")
 public interface IRoleDao {
     /**
      * 通过id查询role
@@ -74,4 +75,31 @@ public interface IRoleDao {
      */
     @Insert("insert into role_permission(roleId,permissionId) value(#{roleId},#{permissionId})")
     void addPermissionToRole(@Param("roleId") int roleId, @Param("permissionId") int permissionId) throws Exception;
+
+    /**
+     * 通过roleId删除role
+     *
+     * @param roleId
+     * @throws Exception
+     */
+    @Delete("delete from role where id=#{roleId}")
+    void deleteRoleById(int roleId) throws Exception;
+
+    /**
+     * 从user_role表中删除
+     *
+     * @param roleId
+     * @throws Exception
+     */
+    @Delete("delete from users_role where roleId=#{roleId}")
+    void deleteFromUser_RoleByRoleId(int roleId) throws Exception;
+
+    /**
+     * 从role_permission表中删除
+     *
+     * @param roleId
+     * @throws Exception
+     */
+    @Delete("delete from role_permission where roleId=#{roleId}")
+    void deleteFromRole_PermissionByRoleId(int roleId) throws Exception;
 }

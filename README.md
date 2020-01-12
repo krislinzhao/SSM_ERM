@@ -145,7 +145,7 @@ AOP日志处理，使用spring AOP切面来完成系统级别的日志收集。
 |  2   |   visitTime   |  datetime   |   访问时间   |
 |  3   |   username    | varchar(20) | 操作者用户名 |
 |  4   |      ip       | varchar(50) |    访问ip    |
-|  5   |      url      | varcahr(50) | 访问资源url  |
-|  6   | executionTime |  datetime   |   执行时长   |
+|  5   |      url      | varchar(50) | 访问资源url  |
+|  6   | executionTime |  int(50)   |   执行时长   |
 |  7   |    method     | varchar(20) |   访问方法   |
 

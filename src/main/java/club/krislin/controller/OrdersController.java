@@ -3,12 +3,13 @@ package club.krislin.controller;
 import club.krislin.domain.Orders;
 import club.krislin.service.IOrdersService;
 import com.github.pagehelper.PageInfo;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -22,7 +23,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/orders")
 public class OrdersController {
-    @Autowired
+    @Resource
     private IOrdersService ordersService;
 
     /**
@@ -34,6 +35,7 @@ public class OrdersController {
      * @throws Exception
      */
     @RequestMapping("/findAll.do")
+    @Secured("ROLE_ADMIN")
     public ModelAndView findAll(@RequestParam(name = "pageNum", defaultValue = "1") Integer pageNum,
                                 @RequestParam(name = "pageSize", defaultValue = "4") Integer pageSize) throws Exception {
         ModelAndView modelAndView = new ModelAndView();

@@ -102,7 +102,7 @@
                             <input type="text" class="form-control" name="permissionName"
                                    placeholder="权限名称" value="">
                         </div>
-                        <div class="col-md-2 title">RUL</div>
+                        <div class="col-md-2 title">URL</div>
                         <div class="col-md-4 data">
                             <input type="text" class="form-control" name="url"
                                    placeholder="URL" value="">

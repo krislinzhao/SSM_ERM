@@ -1,6 +1,7 @@
 package club.krislin;
 
 import club.krislin.dao.IMemberDao;
+import club.krislin.dao.IProductDao;
 import club.krislin.domain.Orders;
 import club.krislin.service.IOrdersService;
 import org.junit.Test;
@@ -20,7 +21,8 @@ import java.util.List;
  * @Version V1.0
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:applicationContext.xml")
+@ContextConfiguration(locations = {"classpath:applicationContext.xml",
+        "classpath*:spring-security.xml"})
 public class OrdersServiceTest {
     @Resource
     private IOrdersService ordersService;
@@ -41,5 +43,13 @@ public class OrdersServiceTest {
         System.out.println(orders);
         //Member member = memberDao.findById(1);
         //System.out.println(member);
+    }
+
+    @Resource
+    private IProductDao productDao;
+
+    @Test
+    public void testDeleteOrder() throws Exception {
+        productDao.deleteOrder(1);
     }
 }

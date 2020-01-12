@@ -20,12 +20,21 @@ public interface IProductService {
      * @return
      * @throws Exception
      */
-    List<Product> findAll(Integer pageNum,Integer pageSize) throws Exception;
+    List<Product> findAll(Integer pageNum, Integer pageSize) throws Exception;
 
     /**
      * 添加
+     *
      * @param product
      * @throws Exception
      */
     void save(Product product) throws Exception;
+
+    /**
+     * 删除产品
+     *
+     * @param productId
+     * @throws Exception
+     */
+    void deleteProduct(int productId) throws Exception;
 }

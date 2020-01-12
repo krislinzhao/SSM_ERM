@@ -1,6 +1,7 @@
 package club.krislin.dao;
 
 import club.krislin.domain.Product;
+import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
@@ -15,7 +16,7 @@ import java.util.List;
  * @Author LIM
  * @Version V1.0
  */
-@Repository
+@Repository("productDao")
 public interface IProductDao {
     /**
      * 根据id查询产品
@@ -35,10 +36,29 @@ public interface IProductDao {
 
     /**
      * 添加
+     *
      * @param product
      * @throws Exception
      */
     @Insert("insert into product(productNum,productName,cityName,departureTime,productPrice,productDesc,productStatus) " +
             "values(#{productNum},#{productName},#{cityName},#{departureTime},#{productPrice},#{productDesc},#{productStatus})")
     void save(Product product) throws Exception;
+
+    /**
+     * 删除产品
+     *
+     * @param productId
+     * @throws Exception
+     */
+    @Delete("delete from product where id=#{productId}")
+    void deleteProduct(int productId) throws Exception;
+
+    /**
+     * 删除订单
+     *
+     * @param productId
+     * @throws Exception
+     */
+    @Delete("delete from orders where productId=#{productId}")
+    void deleteOrder(int productId) throws Exception;
 }

@@ -40,4 +40,21 @@ public interface IPermissionService {
      * @throws Exception
      */
     List<Permission> findOtherPermission(int roleId) throws Exception;
+
+    /**
+     * 通过permissionId查询permission
+     *
+     * @param permissionId
+     * @return
+     * @throws Exception
+     */
+    Permission findById(int permissionId) throws Exception;
+
+    /**
+     * 通过permissionId删除permission
+     *
+     * @param permissionId
+     * @throws Exception
+     */
+    void deletePermission(int permissionId) throws Exception;
 }

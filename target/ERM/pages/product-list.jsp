@@ -116,28 +116,28 @@
 								<div class="form-group form-inline">
 									<div class="btn-group">
 										<button type="button" class="btn btn-default" title="新建"
-											onclick="location.href='${pageContext.request.contextPath}/pages/product-add.jsp'">
+												onclick="location.href='${pageContext.request.contextPath}/pages/product-add.jsp'">
 											<i class="fa fa-file-o"></i> 新建
 										</button>
-										<button type="button" class="btn btn-default" title="删除">
-											<i class="fa fa-trash-o"></i> 删除
-										</button>
-										<button type="button" class="btn btn-default" title="开启">
-											<i class="fa fa-check"></i> 开启
-										</button>
-										<button type="button" class="btn btn-default" title="屏蔽">
-											<i class="fa fa-ban"></i> 屏蔽
-										</button>
-										<button type="button" class="btn btn-default" title="刷新">
-											<i class="fa fa-refresh"></i> 刷新
-										</button>
+										<%--<button type="button" class="btn btn-default" title="删除">--%>
+										<%--	<i class="fa fa-trash-o"></i> 删除--%>
+										<%--</button>--%>
+										<%--<button type="button" class="btn btn-default" title="开启">--%>
+										<%--	<i class="fa fa-check"></i> 开启--%>
+										<%--</button>--%>
+										<%--<button type="button" class="btn btn-default" title="屏蔽">--%>
+										<%--	<i class="fa fa-ban"></i> 屏蔽--%>
+										<%--</button>--%>
+										<%--<button type="button" class="btn btn-default" title="刷新">--%>
+										<%--	<i class="fa fa-refresh"></i> 刷新--%>
+										<%--</button>--%>
 									</div>
 								</div>
 							</div>
 							<div class="box-tools pull-right">
 								<div class="has-feedback">
 									<input type="text" class="form-control input-sm"
-										placeholder="搜索"> <span
+										   placeholder="搜索"> <span
 										class="glyphicon glyphicon-search form-control-feedback"></span>
 								</div>
 							</div>
@@ -145,19 +145,19 @@
 
 							<!--数据列表-->
 							<table id="dataList"
-								class="table table-bordered table-striped table-hover dataTable">
+								   class="table table-bordered table-striped table-hover dataTable">
 								<thead>
-									<tr>
-										<th class="" style="padding-right: 0px;"><input
+								<tr>
+									<th class="" style="padding-right: 0px;"><input
 											id="selall" type="checkbox" class="icheckbox_square-blue">
-										</th>
-										<th class="sorting_asc">ID</th>
-										<th class="sorting_desc">编号</th>
-										<th class="sorting_asc sorting_asc_disabled">产品名称</th>
-										<th class="sorting_desc sorting_desc_disabled">出发城市</th>
-										<th class="sorting">出发时间</th>
-										<th class="text-center sorting">产品价格</th>
-										<th class="sorting">产品描述</th>
+									</th>
+									<th class="sorting_asc">ID</th>
+									<th class="sorting_desc">编号</th>
+									<th class="sorting_asc sorting_asc_disabled">产品名称</th>
+									<th class="sorting_desc sorting_desc_disabled">出发城市</th>
+									<th class="sorting">出发时间</th>
+									<th class="text-center sorting">产品价格</th>
+									<th class="sorting">产品描述</th>
 										<th class="text-center sorting">状态</th>
 										<th class="text-center">操作</th>
 									</tr>
@@ -178,9 +178,10 @@
 											<td>${product.productDesc }</td>
 											<td class="text-center">${product.productStatusStr }</td>
 											<td class="text-center">
-												<button type="button" class="btn bg-olive btn-xs">订单</button>
-												<button type="button" class="btn bg-olive btn-xs">详情</button>
-												<button type="button" class="btn bg-olive btn-xs">编辑</button>
+													<%--<a href="${pageContext.request.contextPath}/product/findById.do?productId=${p.id}"--%>
+													<%--   class="btn bg-olive btn-xs">详情</a>--%>
+												<a href="${pageContext.request.contextPath}/product/deleteProduct.do?productId=${product.id}"
+												   class="btn bg-olive btn-xs">删除产品</a>
 											</td>
 										</tr>
 									</c:forEach>
@@ -260,105 +261,105 @@
 	<script
 		src="${pageContext.request.contextPath}/plugins/morris/morris.min.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/plugins/sparkline/jquery.sparkline.min.js"></script>
+			src="${pageContext.request.contextPath}/plugins/sparkline/jquery.sparkline.min.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+			src="${pageContext.request.contextPath}/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+			src="${pageContext.request.contextPath}/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/plugins/knob/jquery.knob.js"></script>
+			src="${pageContext.request.contextPath}/plugins/knob/jquery.knob.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/plugins/daterangepicker/moment.min.js"></script>
+			src="${pageContext.request.contextPath}/plugins/daterangepicker/moment.min.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/plugins/daterangepicker/daterangepicker.js"></script>
+			src="${pageContext.request.contextPath}/plugins/daterangepicker/daterangepicker.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/plugins/daterangepicker/daterangepicker.zh-CN.js"></script>
+			src="${pageContext.request.contextPath}/plugins/daterangepicker/daterangepicker.zh-CN.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/plugins/datepicker/bootstrap-datepicker.js"></script>
+			src="${pageContext.request.contextPath}/plugins/datepicker/bootstrap-datepicker.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/plugins/datepicker/locales/bootstrap-datepicker.zh-CN.js"></script>
+			src="${pageContext.request.contextPath}/plugins/datepicker/locales/bootstrap-datepicker.zh-CN.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+			src="${pageContext.request.contextPath}/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+			src="${pageContext.request.contextPath}/plugins/slimScroll/jquery.slimscroll.min.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/plugins/fastclick/fastclick.js"></script>
+			src="${pageContext.request.contextPath}/plugins/fastclick/fastclick.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/plugins/iCheck/icheck.min.js"></script>
+			src="${pageContext.request.contextPath}/plugins/iCheck/icheck.min.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/plugins/adminLTE/js/app.min.js"></script>
+			src="${pageContext.request.contextPath}/plugins/adminLTE/js/app.min.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/plugins/treeTable/jquery.treetable.js"></script>
+			src="${pageContext.request.contextPath}/plugins/treeTable/jquery.treetable.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/plugins/select2/select2.full.min.js"></script>
+			src="${pageContext.request.contextPath}/plugins/select2/select2.full.min.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
+			src="${pageContext.request.contextPath}/plugins/colorpicker/bootstrap-colorpicker.min.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.zh-CN.js"></script>
+			src="${pageContext.request.contextPath}/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.zh-CN.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/plugins/bootstrap-markdown/js/bootstrap-markdown.js"></script>
+			src="${pageContext.request.contextPath}/plugins/bootstrap-markdown/js/bootstrap-markdown.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/plugins/bootstrap-markdown/locale/bootstrap-markdown.zh.js"></script>
+			src="${pageContext.request.contextPath}/plugins/bootstrap-markdown/locale/bootstrap-markdown.zh.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/plugins/bootstrap-markdown/js/markdown.js"></script>
+			src="${pageContext.request.contextPath}/plugins/bootstrap-markdown/js/markdown.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/plugins/bootstrap-markdown/js/to-markdown.js"></script>
+			src="${pageContext.request.contextPath}/plugins/bootstrap-markdown/js/to-markdown.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/plugins/ckeditor/ckeditor.js"></script>
+			src="${pageContext.request.contextPath}/plugins/ckeditor/ckeditor.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/plugins/input-mask/jquery.inputmask.js"></script>
+			src="${pageContext.request.contextPath}/plugins/input-mask/jquery.inputmask.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
+			src="${pageContext.request.contextPath}/plugins/input-mask/jquery.inputmask.date.extensions.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/plugins/input-mask/jquery.inputmask.extensions.js"></script>
+			src="${pageContext.request.contextPath}/plugins/input-mask/jquery.inputmask.extensions.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/plugins/datatables/jquery.dataTables.min.js"></script>
+			src="${pageContext.request.contextPath}/plugins/datatables/jquery.dataTables.min.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/plugins/datatables/dataTables.bootstrap.min.js"></script>
+			src="${pageContext.request.contextPath}/plugins/datatables/dataTables.bootstrap.min.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/plugins/chartjs/Chart.min.js"></script>
+			src="${pageContext.request.contextPath}/plugins/chartjs/Chart.min.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/plugins/flot/jquery.flot.min.js"></script>
+			src="${pageContext.request.contextPath}/plugins/flot/jquery.flot.min.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/plugins/flot/jquery.flot.resize.min.js"></script>
+			src="${pageContext.request.contextPath}/plugins/flot/jquery.flot.resize.min.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/plugins/flot/jquery.flot.pie.min.js"></script>
+			src="${pageContext.request.contextPath}/plugins/flot/jquery.flot.pie.min.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/plugins/flot/jquery.flot.categories.min.js"></script>
+			src="${pageContext.request.contextPath}/plugins/flot/jquery.flot.categories.min.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/plugins/ionslider/ion.rangeSlider.min.js"></script>
+			src="${pageContext.request.contextPath}/plugins/ionslider/ion.rangeSlider.min.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/plugins/bootstrap-slider/bootstrap-slider.js"></script>
+			src="${pageContext.request.contextPath}/plugins/bootstrap-slider/bootstrap-slider.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
+			src="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
 	<script
-		src="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+			src="${pageContext.request.contextPath}/plugins/bootstrap-datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js"></script>
 	<script>
 		function changePageSize() {
 			//获取下拉框的值
 			var pageSize = $("#changePageSize").val();
 
 			//向服务器发送请求，改变没页显示条数
-			location.href = "${pageContext.request.contextPath}/orders/findAll.do?pageNum=1&pageSize="
+			location.href = "${pageContext.request.contextPath}/product/findAll.do?pageNum=1&pageSize="
 					+ pageSize;
-		}
-		$(document).ready(function() {
+		};
+		$(document).ready(function () {
 			// 选择框
 			$(".select2").select2();
 
 			// WYSIHTML5编辑器
 			$(".textarea").wysihtml5({
-				locale : 'zh-CN'
+				locale: 'zh-CN'
 			});
 		});
 
-		$(document).ready(function() {
+		$(document).ready(function () {
 			// 选择框
 			$(".select2").select2();
 
 			// WYSIHTML5编辑器
 			$(".textarea").wysihtml5({
-				locale : 'zh-CN'
+				locale: 'zh-CN'
 			});
 		});
 

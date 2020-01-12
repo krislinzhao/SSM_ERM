@@ -5,7 +5,6 @@ import club.krislin.domain.Role;
 import club.krislin.domain.UserInfo;
 import club.krislin.service.IUserService;
 import com.github.pagehelper.PageHelper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,6 +12,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,9 +26,9 @@ import java.util.List;
  */
 @Service("userService")
 public class UserServiceImpl implements IUserService {
-    @Autowired
+    @Resource
     private IUserDao userDao;
-    @Autowired
+    @Resource
     private PasswordEncoder passwordEncoder;
 
     /**
@@ -67,7 +67,7 @@ public class UserServiceImpl implements IUserService {
             e.printStackTrace();
         }
         //把自己的用户对象封装成UserDetails
-        User user = new User(userInfo.getUsername(), "{noop}" + userInfo.getPassword(), userInfo.getStatus() == 0 ? false : true, true, true, true, getAuthority(userInfo.getRoles()));
+        User user = new User(userInfo.getUsername(), userInfo.getPassword(), userInfo.getStatus() == 0 ? false : true, true, true, true, getAuthority(userInfo.getRoles()));
         return user;
     }
 
@@ -86,7 +86,7 @@ public class UserServiceImpl implements IUserService {
     }
 
     /**
-     * 保存账户
+     * 添加账户
      *
      * @param userInfo
      * @throws Exception

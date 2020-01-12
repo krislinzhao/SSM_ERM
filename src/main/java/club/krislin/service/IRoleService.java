@@ -57,4 +57,12 @@ public interface IRoleService {
      * @throws Exception
      */
     void addPermissionToRole(int roleId, int[] permissionIds) throws Exception;
+
+    /**
+     * 通过roleId删除role
+     *
+     * @param roleId
+     * @throws Exception
+     */
+    void deleteRole(int roleId) throws Exception;
 }

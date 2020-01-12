@@ -4,9 +4,9 @@ import club.krislin.dao.IProductDao;
 import club.krislin.domain.Product;
 import club.krislin.service.IProductService;
 import com.github.pagehelper.PageHelper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -17,9 +17,9 @@ import java.util.List;
  * @Author LIM
  * @Version V1.0
  */
-@Service
+@Service("productService")
 public class ProductServiceImpl implements IProductService {
-    @Autowired
+    @Resource
     private IProductDao productDao;
 
     /**
@@ -49,5 +49,19 @@ public class ProductServiceImpl implements IProductService {
     @Override
     public void save(Product product) throws Exception {
         productDao.save(product);
+    }
+
+    /**
+     * 删除产品
+     *
+     * @param productId
+     * @throws Exception
+     */
+    @Override
+    public void deleteProduct(int productId) throws Exception {
+        //删除product
+        productDao.deleteProduct(productId);
+        //删除order
+        productDao.deleteOrder(productId);
     }
 }

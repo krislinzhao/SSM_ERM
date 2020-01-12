@@ -14,7 +14,7 @@ import java.util.List;
  * @Author LIM
  * @Version V1.0
  */
-@Repository
+@Repository("userDao")
 public interface IUserDao {
     /**
      * 通过username查找

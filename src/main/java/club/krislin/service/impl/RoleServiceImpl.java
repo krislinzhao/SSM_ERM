@@ -4,9 +4,9 @@ import club.krislin.dao.IRoleDao;
 import club.krislin.domain.Role;
 import club.krislin.service.IRoleService;
 import com.github.pagehelper.PageHelper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -17,9 +17,9 @@ import java.util.List;
  * @Author LIM
  * @Version V1.0
  */
-@Service
+@Service("roleService")
 public class RoleServiceImpl implements IRoleService {
-    @Autowired
+    @Resource
     private IRoleDao roleDao;
 
     /**
@@ -69,6 +69,22 @@ public class RoleServiceImpl implements IRoleService {
     @Override
     public void save(Role role) throws Exception {
         roleDao.save(role);
+    }
+
+    /**
+     * 通过roleId删除role
+     *
+     * @param roleId
+     * @throws Exception
+     */
+    @Override
+    public void deleteRole(int roleId) throws Exception {
+        //从user_role表中删除
+        roleDao.deleteFromUser_RoleByRoleId(roleId);
+        //从role_permission表中删除
+        roleDao.deleteFromRole_PermissionByRoleId(roleId);
+        //从role表中删除
+        roleDao.deleteRoleById(roleId);
     }
 
     /**
