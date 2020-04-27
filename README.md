@@ -1,7 +1,7 @@
 # SSM_ERM
 此项目是ssm框架的企业权限管理.
 
-
+前端是AdminLTE，后端是SSM。
 
 # 1.功能介绍
 
